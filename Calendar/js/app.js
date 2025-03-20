@@ -41,6 +41,7 @@ const showDays = (year, month) => {
 
   const daysInMonth = getDaysInMonth(year, month);
   let firstDay = new Date(year, month, 0).getDay();
+  console.log(firstDay);
 
   for (let i = 0; i < firstDay; i++) {
     const emptyDiv = document.createElement("div");

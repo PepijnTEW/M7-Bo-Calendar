@@ -8,16 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((data) => {
       allPosts = data;
       loadMorePosts();
-    })
-    .catch((error) => console.error("Error fetching JSON data:", error));
+    });
 
   function loadMorePosts() {
     const container = document.getElementById("post_container");
-    if (!container) {
-      console.error("Element with ID 'post_container' not found.");
-      return;
-    }
-
     const nextPosts = allPosts.slice(currentIndex, currentIndex + postsPerPage);
     nextPosts.forEach((post) => {
       const postElement = document.createElement("div");
