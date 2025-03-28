@@ -26,7 +26,20 @@ class Stapel {
         this.kaarten.push(new Kaart(waarde, symbolen));
       });
     });
-    console.log(this.kaarten);
   }
 }
+function schudden(stapel) {
+  for (let i = stapel.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let temp = stapel[i];
+    stapel[i] = stapel[j];
+    stapel[j] = temp;
+    console.log("changed order");
+  }
+  return stapel;
+}
 const stapel = new Stapel();
+console.log([...stapel.kaarten]);
+
+const geschuddeKaarten = schudden([...stapel.kaarten]);
+console.log(geschuddeKaarten);
