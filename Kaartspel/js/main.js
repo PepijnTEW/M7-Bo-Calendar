@@ -1,4 +1,5 @@
 let pakButton = document.getElementById("pakken-button");
+let spelerDecks = document.getElementsByClassName("hand");
 
 //Maakt de basis structuur voor de kaarten
 class Kaart {
@@ -9,8 +10,8 @@ class Kaart {
 
   kaartHtml() {
     const kaartDiv = document.createElement("div");
-    kaartDiv.className("kaart");
-    kaartDiv.textContent("${this.waarde}${this.symbool}");
+    kaartDiv.className = "kaart";
+    kaartDiv.textContent = `${this.waarde}${this.symbool}`;
     return kaartDiv;
   }
 }
@@ -31,7 +32,7 @@ class Stapel {
       });
     });
     for (let i = 0; i < 2; i++) {
-      this.kaarten.push(new Kaart("J", "Joker"));
+      this.kaarten.push(new Kaart("", "Joker"));
     }
   }
 }
@@ -56,7 +57,19 @@ function uitdelen(aantalSpelers) {
   console.log(decks);
   return decks;
 }
+function toonDecks(decks, location) {
+  decks.forEach((deck, i) => {
+    const spelerDiv = location[i];
+    spelerDiv.innerHTML = "";
+    deck.forEach((kaart) => {
+      const kaartElement = kaart.kaartHtml();
+      spelerDiv.appendChild(kaartElement);
+    });
+  });
+}
 const stapel = new Stapel();
 const geschuddeKaarten = schudden([...stapel.kaarten]);
 console.log(geschuddeKaarten);
-uitdelen(4);
+let decks = uitdelen(4);
+toonDecks(decks, spelerDecks);
+console.log(spelerDecks);
