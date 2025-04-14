@@ -1,5 +1,6 @@
 let pakButton = document.getElementById("pakken-button");
 let spelerDecks = document.getElementsByClassName("hand");
+let aflegstapel = document.getElementById("aflegstapel");
 
 //Maakt de basis structuur voor de kaarten
 class Kaart {
@@ -69,6 +70,9 @@ function toonDecks(decks, location) {
       spelerDiv.appendChild(kaartElement);
     });
   });
+}
+function eersteKaart(cards, location) {
+  location.innerHTML = "";
 }
 const stapel = new Stapel();
 const geschuddeKaarten = schudden([...stapel.kaarten]);
