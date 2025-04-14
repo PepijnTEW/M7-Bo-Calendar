@@ -1,6 +1,9 @@
-let pakButton = document.getElementById("pakken-button");
-let spelerDecks = document.getElementsByClassName("hand");
-let aflegstapel = document.getElementById("aflegstapel");
+const pakButton = document.getElementById("pakken-button");
+const spelerDecks = document.getElementsByClassName("hand");
+const aflegstapel = document.getElementById("aflegstapel");
+const gameTitle = document.getElementById("gameTitle");
+
+let huidigeSpeler = Math.floor(Math.random() * 3);
 
 //Maakt de basis structuur voor de kaarten
 class Kaart {
@@ -71,6 +74,8 @@ function toonDecks(decks, location) {
     });
   });
 }
+
+//zorgt ervoor dat de eerste kaart wordt gepakt wanneer het spel start
 function eersteKaart(location) {
   let eenKaart = geschuddeKaarten.splice(0, 1)[0];
   location.innerHTML = "";
@@ -78,8 +83,37 @@ function eersteKaart(location) {
   location.appendChild(eenKaartElement);
 }
 
+//dit update de titel naar welke speler er nu is
+function titleChanger(title) {
+  spelerCounter = huidigeSpeler + 1;
+  title.innerText = "Speler " + spelerCounter + " is aan de beurt...";
+}
+
+//dit zorgt ervoor dat er kaarten gepakt kunnen worden
+pakButton.addEventListener("click", () => {
+  console.log("clicked");
+  if (geschuddeKaarten.length === 0) {
+    alert("Geen kaarten meer in de stapel!");
+    return;
+  }
+
+  const kaart = geschuddeKaarten.splice(0, 1)[0];
+  decks[huidigeSpeler].push(kaart);
+
+  toonDecks(decks, spelerDecks);
+
+  huidigeSpeler = (huidigeSpeler + 1) % decks.length;
+  titleChanger(gameTitle);
+});
+
+function startGame() {
+  toonDecks(decks, spelerDecks);
+  eersteKaart(aflegstapel);
+  titleChanger(gameTitle);
+}
+
 const stapel = new Stapel();
 const geschuddeKaarten = schudden([...stapel.kaarten]);
 let decks = startUitdelen(4);
-toonDecks(decks, spelerDecks);
-eersteKaart(aflegstapel);
+
+startGame();

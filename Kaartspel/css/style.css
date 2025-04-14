@@ -47,7 +47,6 @@ body {
   background-color: #ffffff;
   display: inline-block;
   font-size: 2rem;
-
 }
 #gameTitle {
   color: #ffff;
@@ -66,8 +65,9 @@ body {
   height: 10rem;
   width: 5rem;
   border-color: #1e152a;
-  border-width:0.2rem;
-  margin:2.5rem;
+  border-width: 0.2rem;
+  margin: 2.5rem;
+  padding: 2rem;
 }
 #lower-game {
   display: flex;
