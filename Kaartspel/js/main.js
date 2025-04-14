@@ -1,3 +1,6 @@
+let pakButton = document.getElementById("pakken-button");
+
+//Maakt de basis structuur voor de kaarten
 class Kaart {
   constructor(symbool, waarde) {
     this.symbool = symbool;
@@ -12,6 +15,7 @@ class Kaart {
   }
 }
 
+//Deze class heeft een functie die ervoor zorgt dat alle kaarten in een stapel gaan
 class Stapel {
   constructor() {
     this.kaarten = [];
@@ -26,20 +30,33 @@ class Stapel {
         this.kaarten.push(new Kaart(waarde, symbolen));
       });
     });
+    for (let i = 0; i < 2; i++) {
+      this.kaarten.push(new Kaart("J", "Joker"));
+    }
   }
 }
+
+//Deze functie heeft de Fisher-Yates shuffle die dan het eerlijk schud
 function schudden(stapel) {
   for (let i = stapel.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
     let temp = stapel[i];
     stapel[i] = stapel[j];
     stapel[j] = temp;
-    console.log("changed order");
   }
   return stapel;
 }
-const stapel = new Stapel();
-console.log([...stapel.kaarten]);
 
+function uitdelen(aantalSpelers) {
+  let decks = [];
+  for (let i = 0; i < aantalSpelers; i++) {
+    let deck = geschuddeKaarten.splice(0, 7);
+    decks.push(deck);
+  }
+  console.log(decks);
+  return decks;
+}
+const stapel = new Stapel();
 const geschuddeKaarten = schudden([...stapel.kaarten]);
 console.log(geschuddeKaarten);
+uitdelen(4);
