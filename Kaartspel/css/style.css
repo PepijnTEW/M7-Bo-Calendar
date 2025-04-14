@@ -43,26 +43,36 @@ html {
 #gameTitle {
   text-align: center;
 }
-
-#lower-game{
-display:flex;
-justify-content:center;
-height: 10rem;
-align-items: end;
+#middle-game {
+  display: flex;
+  justify-content: center;
 }
-
-  #pakken-button{
-    height: 4rem;
-    border-radius:1rem;
-    }
-    #pakken-button:active {
-    border-color: rgb(0, 0, 0)
-    }
-      #pakken-button {
-      transition-duration: 0.3s;
-      }
-      
-     #pakken-button:hover {
-       background-color: #0c885a; /* Green */
-       color: white;
-      }
+#aflegstapel > .kaart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  font-weight: 800;
+  height: 10rem;
+  width: 5rem;
+}
+#lower-game {
+  display: flex;
+  justify-content: center;
+  height: 10rem;
+  align-items: end;
+}
+#pakken-button {
+  height: 4rem;
+  border-radius: 1rem;
+}
+#pakken-button:active {
+  border-color: rgb(0, 0, 0);
+}
+#pakken-button {
+  transition-duration: 0.3s;
+}
+#pakken-button:hover {
+  background-color: #0c885a; /* Green */
+  color: white;
+}

@@ -71,11 +71,15 @@ function toonDecks(decks, location) {
     });
   });
 }
-function eersteKaart(cards, location) {
+function eersteKaart(location) {
+  let eenKaart = geschuddeKaarten.splice(0, 1)[0];
   location.innerHTML = "";
+  const eenKaartElement = eenKaart.kaartHtml();
+  location.appendChild(eenKaartElement);
 }
+
 const stapel = new Stapel();
 const geschuddeKaarten = schudden([...stapel.kaarten]);
 let decks = startUitdelen(4);
 toonDecks(decks, spelerDecks);
-console.log(geschuddeKaarten);
+eersteKaart(aflegstapel);
