@@ -48,7 +48,8 @@ function schudden(stapel) {
   return stapel;
 }
 
-function uitdelen(aantalSpelers) {
+//deze functie maakt voor elke speler een array met de 7 eerste kaarten
+function startUitdelen(aantalSpelers) {
   let decks = [];
   for (let i = 0; i < aantalSpelers; i++) {
     let deck = geschuddeKaarten.splice(0, 7);
@@ -57,6 +58,8 @@ function uitdelen(aantalSpelers) {
   console.log(decks);
   return decks;
 }
+
+//zorgt ervoor dat de decks worden gelaten zien
 function toonDecks(decks, location) {
   decks.forEach((deck, i) => {
     const spelerDiv = location[i];
@@ -69,7 +72,6 @@ function toonDecks(decks, location) {
 }
 const stapel = new Stapel();
 const geschuddeKaarten = schudden([...stapel.kaarten]);
-console.log(geschuddeKaarten);
-let decks = uitdelen(4);
+let decks = startUitdelen(4);
 toonDecks(decks, spelerDecks);
-console.log(spelerDecks);
+console.log(geschuddeKaarten);
