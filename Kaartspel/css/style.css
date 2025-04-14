@@ -9,7 +9,7 @@ html {
   justify-content: space-between;
 }
 .deck {
-  width: 40rem;
+  width: 30rem;
   height: 35rem;
   border-radius: 1rem;
   border-style: solid;
@@ -40,3 +40,29 @@ html {
   display: inline-block;
   font-size: 2rem;
 }
+#gameTitle {
+  text-align: center;
+}
+
+#lower-game{
+display:flex;
+justify-content:center;
+height: 10rem;
+align-items: end;
+}
+
+  #pakken-button{
+    height: 4rem;
+    border-radius:1rem;
+    }
+    #pakken-button:active {
+    border-color: rgb(0, 0, 0)
+    }
+      #pakken-button {
+      transition-duration: 0.3s;
+      }
+      
+     #pakken-button:hover {
+       background-color: #0c885a; /* Green */
+       color: white;
+      }
