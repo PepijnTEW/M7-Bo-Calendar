@@ -2,6 +2,10 @@ html {
   font-size: 62.5%;
   font-family: "Noto Sans";
 }
+
+body{
+  background-color: #424B54 ;
+}
 #decks {
   width: 100%;
   height: 50vh;
@@ -16,32 +20,38 @@ html {
   border-width: 2px;
   padding: 0.5rem;
   border-color: black;
-  background-color: rgb(228, 228, 228);
+  background-color:#93A8AC;
   font-size: 1.6rem;
 }
 #deck1 {
-  border-color: rgb(167, 0, 0);
+  border-color: #1E152A;
+  border-width:0.4rem;
 }
 #deck2 {
-  border-color: rgb(167, 167, 0);
+  border-color: #1E152A;
+  border-width:0.4rem;
 }
 #deck3 {
-  border-color: rgb(0, 0, 167);
+  border-color: #1E152A;
+  border-width:0.4rem;
 }
 #deck4 {
-  border-color: rgb(0, 167, 0);
+  border-color: #1E152A;
+  border-width:0.4rem;
 }
 .kaart {
   border: 1px solid black;
   border-radius: 0.5rem;
   padding: 1rem;
   margin: 0.5rem;
-  background-color: white;
+  background-color: #ffff;
   display: inline-block;
   font-size: 2rem;
 }
 #gameTitle {
   text-align: center;
+  color: #ffff;
+  
 }
 
 #lower-game{
@@ -56,13 +66,15 @@ align-items: end;
     border-radius:1rem;
     }
     #pakken-button:active {
-    border-color: rgb(0, 0, 0)
+    border-color: rgb(0, 0, 0);
+    border-width:0.4rem;
     }
       #pakken-button {
-      transition-duration: 0.3s;
+      transition-duration: 0.4s;
       }
       
      #pakken-button:hover {
-       background-color: #0c885a; /* Green */
-       color: white;
+       background-color: #889696; /* Green */
+       color: #ffff;
       }
+
