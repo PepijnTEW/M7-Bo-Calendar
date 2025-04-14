@@ -129,7 +129,6 @@ function probeerKaartTeSpelen(kaart, kaartIndex) {
     decks[huidigeSpeler].splice(kaartIndex, 1);
     toonDecks(decks, spelerDecks);
     speciaalKaarten(kaart);
-    huidigeSpeler = (huidigeSpeler + richting + decks.length) % decks.length;
     titleChanger(gameTitle);
     toonDecks(decks, spelerDecks);
   } else {
@@ -145,22 +144,24 @@ function speciaalKaarten(kaart) {
     const nieuweKaarten = geschuddeKaarten.splice(0, 5);
     decks[volgendeSpeler].push(...nieuweKaarten);
     jokerVrijheidActief = true;
-  }
-
-  if (kaart.waarde === "A") {
-    richting *= -1;
-    alert("De richting is omgedraaid!");
-  }
-
-  if (kaart.waarde === "7") {
-    huidigeSpeler = (huidigeSpeler - richting + decks.length) % decks.length;
-    alert("Je hebt een 7 gespeeld! Jij bent nog een keer aan de beurt.");
-  }
-
-  if (kaart.waarde === "2") {
+    huidigeSpeler = volgendeSpeler;
+  } else if (kaart.waarde === 2) {
     const nieuweKaarten = geschuddeKaarten.splice(0, 2);
     decks[volgendeSpeler].push(...nieuweKaarten);
     alert("Volgende speler moet 2 kaarten pakken!");
+    huidigeSpeler = volgendeSpeler;
+  } else if (kaart.waarde === 7) {
+    alert("Je hebt een 7 gespeeld! Jij bent nog een keer aan de beurt.");
+  } else if (kaart.waarde === 8) {
+    huidigeSpeler =
+      (huidigeSpeler + 2 * richting + decks.length) % decks.length;
+    alert("Acht wacht! Volgende speler slaat een beurt over.");
+  } else if (kaart.waarde === "A") {
+    richting *= -1;
+    alert("De richting is omgedraaid!");
+    huidigeSpeler = (huidigeSpeler + richting + decks.length) % decks.length;
+  } else {
+    huidigeSpeler = (huidigeSpeler + richting + decks.length) % decks.length;
   }
 }
 
